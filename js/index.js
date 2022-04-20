@@ -19,8 +19,28 @@ function preload() {
         }, 4000);  
     });
 }
+
+function getBestResult(file) {
+    let x = new XMLHttpRequest();
+    x.open('GET',file);
+    x.onload = function(){
+       let data = JSON.parse(x.responseText);
+       best_result = data.result;
+       document.getElementById(`best_result`).innerHTML = best_result +' Points';
+    }
+    x.send();
+}
+
+function setBestResult(file) {
+    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+    xmlhttp.open("POST", file);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.send(JSON.stringify({"result" : "220"}));
+}
+
 function init(){
-    
+    setBestResult("DB/best_result.json");
+    getBestResult("DB/best_result.json");
     window.requestAnimationFrame(main);
     addTable('play_area',max_colums,max_rows,25,25); 
     snake = ['cell_1_15','cell_2_15','cell_3_15'];

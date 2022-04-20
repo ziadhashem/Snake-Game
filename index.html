@@ -17,7 +17,7 @@
 <body>
    <div class="preload">
       <p id="text_preload">Snake</p>
-      <div class="main_img"> <img class="main_img" src="image/p1.jpg"></div>
+      <div class="container_main_img"> <img  id="main_img"src="image/p1.jpg"></div>
       <p id="text_preload">Game</p>
   </div>
   <div id="onload">
@@ -25,7 +25,8 @@
       <div class="row no-gutters">
         <div class="col-md-3" id="aside_img">
           <img src="image/p2.jpg" class="card-img" alt="...">
-          <!-- <img src="image/keys.jpg" class="card-img" alt="..."> -->
+          <p id="best_result_container"><span> Best Game Result <i id="best_result">0</i></span></p>
+          <img src="image/keys.jpg" id="keys_img" alt="...">
         </div>
         <div class="col-md-9">
           <div class="card-header">
@@ -39,7 +40,7 @@
                 </div>
                 <div class="col-3">
                   <ul class="nav nav-tabs">
-                    <li class="btn btn-primary badge badge-secondary  fa fa-clock" > <span  id="timer">00:00</span> </span> </li>
+                    <li class="btn btn-primary badge badge-secondary  fa fa-clock-o" > <span  id="timer">00:00</span> </span> </li>
                     <li class="btn btn-primary badge badge-secondary  fa fa-trophy" > <span  id="points">0</span> Points</span> </li>
                     <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up"></span></li>
                   </ul>
@@ -94,14 +95,16 @@
                  
                </div>
                <div id="about" class="tab-pane fade">
-                 <h2>About Snake Game</h2>
-                 <p>Snake is a video game genre where the player manoeuvres a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience.</p>
-                 <hr>
-                 <h2>About Developer Of This Version</h2>
-                 <p> This Version Was Developed By Engineer Ziad Hashem</p>
-                 <p> Email For Contact: <a id="email">e.ziad.y.hashem@gmail.com</a></p>
-                 <hr>
-                 <p>17-april-2022</p>
+                <div class="jumbotron">
+                    <h2>About Snake Game</h2>
+                    <p>Snake is a video game genre where the player manoeuvres a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience.</p>
+                    <hr>
+                    <h2>About Developer Of This Version</h2>
+                    <p> This Version Was Developed By Engineer Ziad Hashem</p>
+                    <p> Email For Contact: <a id="email">e.ziad.y.hashem@gmail.com</a></p>
+                    <hr>
+                    <p>17-april-2022</p>
+                 </div>
                </div>
              </div>
          </div>
