@@ -63,46 +63,49 @@ function init(){
     $(`#main-sound-btn`).click(function () {
         controlByBackgroundTune();
     });
-    $(`[id^="cell_"]`).click(function () {
-        let id = $(this).attr('id');
-        let x = $(this).data('x');
-        let y = $(this).data('y');
-        let head  = snake[snake.length-1];
-        let x1 = parseInt( getX(head));
-        let y1 = parseInt( getY(head));
-        moveSnake(x1,y1,x,y);    
-    });
     document.addEventListener("keydown", function (event,currentTime) {
         switch (event.keyCode) {
            case 37:{
+                movement.stop();
                 let head  = snake[snake.length-1];
                 let x1 = parseInt( getX(head));
                 let y1 = parseInt( getY(head));
-                moveSnake(x1,y1,0,y1);    
+                window.requestAnimationFrame(function(){
+                    movement.toTop(x1,y1,0,y1);
+                });   
                 console.log("Left key is pressed.");
                 break;
            }
            case 38:{
+                movement.stop();
                 let head  = snake[snake.length-1];
                 let x1 = parseInt( getX(head));
                 let y1 = parseInt( getY(head));
-                moveSnake(x1,y1,x1,0);
+                window.requestAnimationFrame(function(){
+                    movement.toTop(x1,y1,x1,0);
+                });
                 console.log("Up key is pressed.");
                 break;
            }
            case 39:{
+                movement.stop();
                 let head  = snake[snake.length-1];
                 let x1 = parseInt( getX(head));
                 let y1 = parseInt( getY(head));
-                moveSnake(x1,y1,max_colums,y1);
+                window.requestAnimationFrame(function(){
+                    movement.toTop(x1,y1,max_colums,y1);
+                });
                 console.log("Right key is pressed.");
                 break;
            }
            case 40:{
+                movement.stop();
                 let head  = snake[snake.length-1];
                 let x1 = parseInt( getX(head));
                 let y1 = parseInt( getY(head));
-                moveSnake(x1,y1,x1,max_rows);
+                window.requestAnimationFrame(function(){
+                    movement.toButtom(x1,y1,x1,max_rows);
+                });
                 console.log("Down key is pressed.");
                 break;
            }
@@ -160,17 +163,23 @@ function colorCell(x,y,color){
 }
 
 var movement = {
+
+    movement_requested : 0,
+
     toRight: function(x1,y1,x2,y2) {
         x1++;
         if(x1 < x2){   
+            // console.log("from = "+ timer)
             popPushSnake(x1,y1);
-            const secound_since_last_render = (Date.now() - last_render_time)/5000;
-            console.log("sec = "+ secound_since_last_render)
-            if(secound_since_last_render < 0.5/speed)  
-                  return;
-            last_render_time = Date.now();    
-            console.log("Right"); 
-            window.requestAnimationFrame(function(){
+            // console.log("to = "+ timer)
+            // const secound_since_last_render = (Date.now() - last_render_time)/1000;
+            // console.log("sec = "+ secound_since_last_render)
+           
+
+            // if(secound_since_last_render < 0.5/speed)  
+            //       return;
+            // last_render_time = Date.now();    
+            this.movement_requested = window.requestAnimationFrame(function(){
                 movement.toRight(x1,y1,x2,y2);
             });
 
@@ -181,12 +190,12 @@ var movement = {
         x1--;
         if(x1 >= x2){   
             popPushSnake(x1,y1);
-            const secound_since_last_render = (Date.now() - last_render_time) / 1000;
-            if(secound_since_last_render < 1/speed)  
-                  return;
-            last_render_time = Date.now();     
+            // const secound_since_last_render = (Date.now() - last_render_time) / 1000;
+            // if(secound_since_last_render < 1/speed)  
+            //       return;
+            // last_render_time = Date.now();     
         }
-        window.requestAnimationFrame(function(){
+        movement_requested = window.requestAnimationFrame(function(){
             movement.toLeft(x1,y1,x2,y2);
         });
     }, 
@@ -194,12 +203,12 @@ var movement = {
         y1--;
         if(y1 >= y2){   
             popPushSnake(x1,y1);
-            const secound_since_last_render = (Date.now() - last_render_time) / 1000;
-            if(secound_since_last_render < 1/speed)  
-                  return;
-            last_render_time = Date.now();     
+            // const secound_since_last_render = (Date.now() - last_render_time) / 1000;
+            // if(secound_since_last_render < 1/speed)  
+            //       return;
+            // last_render_time = Date.now();     
         }
-        window.requestAnimationFrame(function(){
+        movement_requested = window.requestAnimationFrame(function(){
             movement.toTop(x1,y1,x2,y2);
         });
     }, 
@@ -207,42 +216,19 @@ var movement = {
         y1++;
         if(y1 < y2){   
             popPushSnake(x1,y1);
-            const secound_since_last_render = (Date.now() - last_render_time) / 1000;
-            if(secound_since_last_render < 1/speed)  
-                  return;
-            last_render_time = Date.now();     
+            // const secound_since_last_render = (Date.now() - last_render_time) / 1000;
+            // if(secound_since_last_render < 1/speed)  
+            //       return;
+            // last_render_time = Date.now();     
         }
-        window.requestAnimationFrame(function(){
+        movement_requested = window.requestAnimationFrame(function(){
             movement.toButtom(x1,y1,x2,y2);
         });
+    }, 
+    stop:function() {
+        window.cancelAnimationFrame(this.movement_requested);
     }
-}
 
-function moveSnake(x1,y1,x2,y2) {
-    if(x2 == x1){
-        if(y2>y1){
-            window.requestAnimationFrame(function(){
-                movement.toButtom(x1,y1,x2,y2);
-            });
-        }
-        if(y1>y2){
-            window.requestAnimationFrame(function(){
-                movement.toTop(x1,y1,x2,y2);
-            });
-        }
-    }
-    if(y2 == y1){
-        if(x2>x1){
-            window.requestAnimationFrame(function(){
-                movement.toRight(x1,y1,x2,y2);
-            });
-        }
-        if(x1>x2){
-            window.requestAnimationFrame(function(){
-                movement.toLeft(x1,y1,x2,y2);
-            });
-        }
-    } 
 }
 
 function pushSnake(x,y) {
