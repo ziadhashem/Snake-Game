@@ -64,19 +64,19 @@
                                 <legend class="col-form-label col-sm-2 pt-0">Select Level</legend>
                                 <div class="col-sm-10">
                                   <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="easy" checked>
+                                    <input class="form-check-input" type="radio" name="game_level" id="gridRadios1" value="easy" checked>
                                     <label class="form-check-label" for="gridRadios1">
                                       Easy
                                     </label>
                                   </div>
                                   <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="medium">
+                                    <input class="form-check-input" type="radio" name="game_level" id="gridRadios2" value="medium">
                                     <label class="form-check-label" for="gridRadios2">
                                       Medium
                                     </label>
                                   </div>
                                   <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="hard">
+                                    <input class="form-check-input" type="radio" name="game_level" id="gridRadios3" value="hard">
                                     <label class="form-check-label" for="gridRadios3">
                                       Hard /Expert
                                     </label>
@@ -113,7 +113,12 @@
       </div>
     </div>
   </div>
-    <script src="js/index.js"></script>
     <script src="js/sweetalert.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/snake.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+         preload();
+    </script>
 </body>
 </html>
