@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="js/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>   
-    <!-- <link rel="stylesheet" href="css/font_awesome_4.7.0.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
 <body>
@@ -36,6 +35,7 @@
                     <li class="active"><a class="btn btn-primary" data-toggle="tab" href="#play" id="play-btn"> <span class="fa fa-keyboard-o"></span> Play</a></li>
                     <li><a  class="btn btn-primary" data-toggle="tab" href="#setting" id="setting-btn"><i  class="fa fa-cogs"></i> Settings</a></li>
                     <li><a class="btn btn-primary" data-toggle="tab" href="#about"><span class="fa fa-lightbulb-o"></span> About</a></li>
+                    <li><a class="btn btn-primary" data-toggle="tab" onclick=window.location.reload();><span class="fa fa-refresh"></span> Restart</a></li>
                   </ul>
                 </div>
                 <div class="col-3">
@@ -61,7 +61,7 @@
                         <div class="col">
                             <fieldset class="form-group">
                               <div class="row">
-                                <legend class="col-form-label col-sm-2 pt-0">Select Level</legend>
+                                <label class="form-label col-md-3 pt-0">Select Level : </label>
                                 <div class="col-sm-10">
                                   <div class="form-check">
                                     <input class="form-check-input" type="radio" name="game_level" id="gridRadios1" value="easy" checked>
@@ -85,8 +85,20 @@
                               </div>
                             </fieldset>
                             <div class="form-group">
-                                 <label class="form-label" for="audio-btn">Enable/disable Sound  &nbsp;</label>
+                                 <label class="form-label col-md-3" for="audio-btn">Enable/disable Sound :  &nbsp;</label>
                                  <span id="audio-btn" class="fa fa-volume-up fa-3x"></span>
+                            </div>
+                            <div class="form-group row">
+                              <label for="exampleColorInput" class="form-label col-md-3">Select Game Area Color : </label>
+                              <div class="col-md-3">                             
+                                 <input type="color" id="color_game_area"class="form-control form-control-color " id="exampleColorInput" value="#05660C" title="Choose your color">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label for="exampleColorInput" class="form-label col-md-3">Select Snake Color : </label>
+                              <div class="col-md-3">                             
+                                 <input type="color" id="color_snake"class="form-control form-control-color " id="exampleColorInput" value="#000000" title="Choose your color">
+                              </div>
                             </div>
                         </div>
                       </div>
@@ -96,17 +108,29 @@
                </div>
                <div id="about" class="tab-pane fade">
                 <div class="jumbotron">
-                    <h2>About Snake Game</h2>
+                    <h2>Snake Game</h2>
                     <p>Snake is a video game genre where the player manoeuvres a growing line that becomes a primary obstacle to itself. The concept originated in the 1976 two-player arcade game Blockade from Gremlin Industries, and the ease of implementation has led to hundreds of versions (some of which have the word snake or worm in the title) for many platforms. 1982's Tron arcade game, based on the film, includes snake gameplay for the single-player Light Cycles segment. After a variant was preloaded on Nokia mobile phones in 1998, there was a resurgence of interest in snake games as it found a larger audience.</p>
                     <hr>
-                    <h2>About Developer Of This Version</h2>
-                    <p> This Version Was Developed By Engineer Ziad Hashem</p>
-                    <p> Email For Contact: <a id="email">e.ziad.y.hashem@gmail.com</a></p>
-                    <hr>
-                    <p>17-april-2022</p>
-                 </div>
+                    <h2>Developer Of This Version</h2>
+                    <p> This Version Was Developed By Engineer Ziad Hashem    |  <b>17-april-2022</b></p>
+                    <div class="row">
+                        <aside class="sidebar col-md-12">
+                          <div class="single contact-info">
+                            <ul class="row">
+                                <h6> Contact Information : </h6>
+                                <li class="col">
+                                  <div class="icon"><i class="fa fa-envelope"></i></div>
+                                  <div class="info"><a href="mailto:e.ziad.y.hashem@gmail.com">e.ziad.y.hashem@gmail.com</a></div>
+                                </li>
+                                <li class="col">
+                                  <div class="icon"><i class="fa fa-linkedin-square"></i></div>
+                                  <div class="info"><a href="https://www.linkedin.com/in/ziad-hashem-a26581152/">Linkedin Account</a></div>
+                                </li>
+                            </ul>
+                        </aside>              
+                    </div>
                </div>
-             </div>
+               </div>
              <div id="footer"><p>Developed By Ziad Hashem</p></div>
          </div>
         </div>
@@ -114,6 +138,7 @@
     </div>
   </div>
     <script src="js/sweetalert.min.js"></script>
+    <script src="js/require.js"></script>
     <script src="js/config.js"></script>
     <script src="js/snake.js"></script>
     <script src="js/index.js"></script>

@@ -5,26 +5,37 @@ function preload() {
             const preload = document.querySelector('.preload');
             preload.classList.add('preload-finish');
             document.querySelector('#onload').style.opacity = 1 ;
-            onload();     
+            onloadGame();     
         }, preload_time);  
     });
 }
 
-function onload(){
-    setBestResult("DB/best_result.json");
-    getBestResult("DB/best_result.json");
-    setGameTime();
-    setGameArea(); 
-    let new_snake = new snake();
-    new_snake.body = ['cell_1_15','cell_2_15','cell_3_15'];
-    new_snake.prepare();
-    new_snake.prepareMove();
-    randomApple(new_snake.body);
-    $(`#setting-btn`).click();
+function onloadGame(){
+    let new_snake = null;
     $(`#play-btn`).click(function () {
+        getBestResult("DB/best_result.json");
+        resetPlayerPoints();
+        setGameTime();
+        setColorGameArea();
+        setColorSnake();
+        setGameArea();
+        new_snake = new snake();
+        new_snake.body = ['cell_1_15','cell_2_15','cell_3_15'];
+        new_snake.prepare();
+        new_snake.prepareMove();
+        randomApple(new_snake.body);
         if($(`#audio-btn`).hasClass('fa-volume-up'))
            controlByBackgroundTune("RUN");
     });
+    $(`#setting-btn`).click(function() {
+        if(new_snake !== null){
+            new_snake.stop();
+            new_snake.body = [];
+            new_snake = null
+            points = 0;
+        }
+    });
+    $(`#setting-btn`).click();
     audio_background.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
@@ -48,14 +59,11 @@ function getBestResult(file) {
     x.send();
 }
 
-function setBestResult(file) {
-    let xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-    xmlhttp.open("POST", file);
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlhttp.send(JSON.stringify({"result" : "220"}));
+function setBestResult(url) {
 }
 
 function setGameTime() {
+    timer = 0;
     window.requestAnimationFrame(getGameTime);
 }
 
@@ -119,7 +127,7 @@ function setGameArea() {
     var table = document.createElement('TABLE');
     table.border='1';
     table.rules ='none';
-    table.style.backgroundColor =`green`;
+    table.style.backgroundColor = color_game_area;
 
     
     var tableBody = document.createElement('TBODY');
@@ -132,7 +140,9 @@ function setGameArea() {
        for (var x=0; x<max_colums; x++){
            var td = document.createElement('TD');
            td.style.width = td_width+'px';
-           td.style.borderColor = "green";
+           td.style.border = 0;
+           td.style.borderColor = color_game_area;
+           td.style.borderRadius = '25%';    
            td.innerHTML = `&nbsp;`
            td.setAttribute('data-x',x);
            td.setAttribute('data-y',y);
@@ -152,6 +162,7 @@ function getGameTime(currentTime) {
     m = timer_temp / 60;
     s = timer_temp % 60;
     document.getElementById(`timer`).innerHTML = Math.floor(m)+":"+s;
+    document.getElementById(`points`).innerHTML = points;
     window.requestAnimationFrame(getGameTime);
     const secound_since_last_render = (Date.now() - last_render_time) / 1000;
     if(secound_since_last_render < 1)
@@ -159,7 +170,6 @@ function getGameTime(currentTime) {
     timer++;
     last_render_time = Date.now();
 }
-
 
 function getLevelGame(){
     let radios = document.getElementsByName('game_level');
@@ -179,6 +189,24 @@ function getLevelGame(){
             break;
         }
     }
-    return speed
+    return speed;
+}
+
+function setColorGameArea() {
+   let color =  document.getElementById(`color_game_area`).value;
+   color_game_area = color;
+   return color_game_area;
+}
+
+function setColorSnake(params) {
+    let color =  document.getElementById(`color_snake`).value;
+    color_snake = color;
+    return color_snake;
+}
+
+
+function resetPlayerPoints() {
+    points = 0;
+    document.getElementById(`points`).value = points;
 }
 

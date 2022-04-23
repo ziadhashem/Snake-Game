@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "browserify-fs": "^1.0.0",
+    "require-file": "^1.0.2",
+    "requirejs": "^2.3.6"
+  }
+}
