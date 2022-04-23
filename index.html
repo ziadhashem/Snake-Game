@@ -29,23 +29,54 @@
         </div>
         <div class="col-md-9">
           <div class="card-header">
-            <div class="row">
-                <div class="col-9">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a class="btn btn-primary" data-toggle="tab" href="#play" id="play-btn"> <span class="fa fa-keyboard-o"></span> Play</a></li>
-                    <li><a  class="btn btn-primary" data-toggle="tab" href="#setting" id="setting-btn"><i  class="fa fa-cogs"></i> Settings</a></li>
-                    <li><a class="btn btn-primary" data-toggle="tab" href="#about"><span class="fa fa-lightbulb-o"></span> About</a></li>
-                    <li><a class="btn btn-primary" data-toggle="tab" onclick=window.location.reload();><span class="fa fa-refresh"></span> Restart</a></li>
-                  </ul>
+          
+               <!-- ///////////////////////////////////////// -->
+               <div class="row" id="basic_bar">
+                  <div class="col-9">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a class="btn btn-primary" data-toggle="tab" href="#play" id="play-btn"> <span class="fa fa-keyboard-o"></span> Play</a></li>
+                      <li><a  class="btn btn-primary" data-toggle="tab" href="#setting" id="setting-btn"><i  class="fa fa-cogs"></i> Settings</a></li>
+                      <li><a class="btn btn-primary" data-toggle="tab" href="#about"><span class="fa fa-lightbulb-o"></span> About</a></li>
+                      <li><a class="btn btn-primary" data-toggle="tab" onclick=window.location.reload();><span class="fa fa-refresh"></span> Restart</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-3">
+                    <ul class="nav nav-tabs">
+                      <li class="btn btn-primary badge badge-secondary  fa fa-clock-o" > <span  id="timer">00:00</span> </span> </li>
+                      <li class="btn btn-primary badge badge-secondary  fa fa-trophy" > <span  id="points">0</span> Points</span> </li>
+                      <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up"></span></li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="col-3">
-                  <ul class="nav nav-tabs">
-                    <li class="btn btn-primary badge badge-secondary  fa fa-clock-o" > <span  id="timer">00:00</span> </span> </li>
-                    <li class="btn btn-primary badge badge-secondary  fa fa-trophy" > <span  id="points">0</span> Points</span> </li>
-                    <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up"></span></li>
-                  </ul>
+               <!-- ///////////////////////////////////////// -->
+               <div class="row" id="secondary_bar">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                 <div>
+                   <ul class="nav nav-tabs">
+                     <li class="active"><a class="btn btn-primary" data-toggle="tab" href="#play" id="play-btn"> <span class="fa fa-keyboard-o"></span> Play</a></li>
+                     <li class="btn btn-primary badge badge-secondary  fa fa-clock-o" > <span  id="timer">00:00</span> </span> </li>
+                     <li class="btn btn-primary badge badge-secondary  fa fa-trophy" > <span  id="points">0</span> Points</span> </li>
+                     <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up"></span></li>
+                   </ul>
+                 </div>
+               
+                 <!-- Toggler/collapsibe Button -->
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+               
+                 <!-- Navbar links -->
+                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                   <ul class="navbar-nav">
+                     <li><a class="btn btn-default" data-toggle="tab" href="#setting" id="setting-btn"><i  class="fa fa-cogs"></i> Settings</a></li>
+                     <li><a class="btn btn-default" data-toggle="tab" href="#about"><span class="fa fa-lightbulb-o"></span> About</a></li>
+                     <li><a class="btn btn-default" data-toggle="tab" onclick=window.location.reload();><span class="fa fa-refresh"></span> Restart</a></li>
+                   </ul>
+                 </div>
+               </nav>
                 </div>
-             </div>
+               <!-- ///////////////////////////////////////// -->
+             
           </div>
           <div class="card-body">
             <div class="tab-content">
