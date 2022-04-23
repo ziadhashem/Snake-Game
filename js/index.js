@@ -10,23 +10,30 @@ function preload() {
     });
 }
 
+function callback(){
+    console.log('sssss');
+    getBestResult("DB/best_result.json");
+    console.log('sss1111ss');
+    resetPlayerPoints();
+    setHeightAndWidth();
+    setGameTime();
+    setColorGameArea();
+    setColorSnake();
+    let s = setGameArea();
+    console.log(s);
+    new_snake = new snake();
+    new_snake.body = ['cell_1_5','cell_2_5','cell_3_5'];
+    new_snake.prepare();
+    new_snake.prepareMove();
+    randomApple(new_snake.body);
+    if($(`#audio-btn`).hasClass('fa-volume-up'))
+       controlByBackgroundTune("RUN");
+}
 function onloadGame(){
+    console.log('sssss');
     let new_snake = null;
-    $(`#play-btn`).click(function () {
-        getBestResult("DB/best_result.json");
-        resetPlayerPoints();
-        setGameTime();
-        setColorGameArea();
-        setColorSnake();
-        setGameArea();
-        new_snake = new snake();
-        new_snake.body = ['cell_1_15','cell_2_15','cell_3_15'];
-        new_snake.prepare();
-        new_snake.prepareMove();
-        randomApple(new_snake.body);
-        if($(`#audio-btn`).hasClass('fa-volume-up'))
-           controlByBackgroundTune("RUN");
-    });
+    document.getElementById('play-btn').addEventListener("click", callback);
+    document.getElementById('play-btn').addEventListener("touchstart", callback);
     $(`#setting-btn`).click(function() {
         if(new_snake !== null){
             new_snake.stop();
@@ -121,7 +128,6 @@ function colorCell(x,y,color){
 }
 
 function setGameArea() {
-      
     var myTableDiv = document.getElementById(play_area_container);
       
     var table = document.createElement('TABLE');
@@ -208,5 +214,14 @@ function setColorSnake(params) {
 function resetPlayerPoints() {
     points = 0;
     document.getElementById(`points`).value = points;
+}
+
+function setHeightAndWidth() {
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    console.log(width);
+    if(width< 415){ 
+        max_colums = 10;
+        max_rows = 10;
+    }
 }
 

@@ -1,7 +1,7 @@
 
 const preload_time = 2000;
-const max_colums = 20;
-const max_rows = 20;
+var max_colums = 20;
+var max_rows = 20;
 const tr_height = 25;
 const td_width = 25;
 const play_area_container = 'play_area'; // id container

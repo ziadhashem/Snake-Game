@@ -47,8 +47,9 @@
 }
 
 #play_area{
-  padding: 2%;
-  height: 80vh;
+  padding: 1%;
+  padding-bottom: 15px;
+  height: 79vh;
   border:10px dotted gold;
 }
 
@@ -129,7 +130,7 @@ table, td, th {
     border-radius: 50%;
     display:none;
   }
-  #secondary_bar{
+  #secondary_bar, #third_bar{
     display:none;
   }
   
@@ -178,8 +179,13 @@ table, td, th {
 
     /* ///////////////////////////////////////////////// */
 
-    @media screen and (max-width: 415px) {
-   
+    @media screen and (max-width: 820px) {
+      *{
+        padding: 0;
+        margin: 0;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
       #text_preload{
         font-size: 1.5em;
         font-family: 'Press Start 2P', cursive;
@@ -192,9 +198,12 @@ table, td, th {
         /* border-radius: 90px 0 90px 0; */
       }
       #play_area{
-        padding: auto;
-        height: 560px;
+        padding: 0;
+        height: 450px;
         border:10px dotted gold;
+      }
+      #play{
+        padding:0;
       }
       
       #footer{
@@ -214,6 +223,7 @@ table, td, th {
         width: 100px;
         height: 100px;
         border-radius: 50%;
+        display: none;
       }
       .card-img{
         width:100px;
@@ -228,13 +238,15 @@ table, td, th {
       }
      
       #play-btn{
-        margin-right: 5px;
+        margin: 0 10px 0 2px;
       }
       #basic_bar{
         display:none;
       }
-      #secondary_bar{
+      #third_bar,#secondary_bar{
         display:inline-block;
+        width:100%;
+        margin:0;
       }
       #collapsibleNavbar>ul>li>a{
         color:white;
@@ -255,7 +267,41 @@ table, td, th {
       .tab-content{
         overflow-y: scroll;
       }
-      
+      .navbar{
+        width: 100%;
+        float:left;
+      }
+      .img-bar{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+      }
+      #timer,#points{
+        color:white;
+        margin:3px;
+      }
+      #icon-trophy,#icon-clock{
+        color:white;
+      }
+      #main-sound-btn{
+        color:black;
+      }
+      #third_bar>ul>li{
+        width:28%;
+      }
+      #contact-info{
+        height: 200px;
+        display: -ms-flexbox;
+        display:block;
+        flex-wrap: none;
+        margin: 0px;
+      }
+      .card-body{
+        padding: 0;
+        margin:0;
+      }
+
       
      
   }
