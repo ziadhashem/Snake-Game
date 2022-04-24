@@ -164,7 +164,7 @@ class snake{
     changeLocation = function(x,y, obj = this) {
         if(obj.body.includes(`cell_${x}_${y}`)){
             swal("Good Luck !", ` your score is ${points} points `, "error");
-            onloadGame();
+            window.location.reload();
         }
         else{
             this.stepToFront(x,y);

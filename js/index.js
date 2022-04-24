@@ -10,12 +10,9 @@ function preload() {
     });
 }
 
-function callback(){
-    console.log('sssss');
+function newGame(){
     getBestResult("DB/best_result.json");
-    console.log('sss1111ss');
     resetPlayerPoints();
-    setHeightAndWidth();
     setGameTime();
     setColorGameArea();
     setColorSnake();
@@ -27,13 +24,12 @@ function callback(){
     new_snake.prepareMove();
     randomApple(new_snake.body);
     if($(`#audio-btn`).hasClass('fa-volume-up'))
-       controlByBackgroundTune("RUN");
+       controlByBackgroundTune("RUN");   
 }
 function onloadGame(){
-    console.log('sssss');
     let new_snake = null;
-    document.getElementById('play-btn').addEventListener("click", callback);
-    document.getElementById('play-btn').addEventListener("touchstart", callback);
+    document.getElementById('play-btn').addEventListener("click", newGame);
+    document.getElementById('play-btn').addEventListener("touchstart", newGame);
     $(`#setting-btn`).click(function() {
         if(new_snake !== null){
             new_snake.stop();
@@ -43,6 +39,15 @@ function onloadGame(){
         }
     });
     $(`#setting-btn`).click();
+    $(`#setting-btn-2`).click(function() {
+        if(new_snake !== null){
+            new_snake.stop();
+            new_snake.body = [];
+            new_snake = null
+            points = 0;
+        }
+    });
+    $(`#setting-btn-2`).click();
     audio_background.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
@@ -168,7 +173,9 @@ function getGameTime(currentTime) {
     m = timer_temp / 60;
     s = timer_temp % 60;
     document.getElementById(`timer`).innerHTML = Math.floor(m)+":"+s;
+    document.getElementById(`timer-2`).innerHTML = Math.floor(m)+":"+s;
     document.getElementById(`points`).innerHTML = points;
+    document.getElementById(`points-2`).innerHTML = points;
     window.requestAnimationFrame(getGameTime);
     const secound_since_last_render = (Date.now() - last_render_time) / 1000;
     if(secound_since_last_render < 1)
@@ -220,8 +227,22 @@ function setHeightAndWidth() {
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     console.log(width);
     if(width< 415){ 
-        max_colums = 10;
-        max_rows = 10;
+        max_colums = 20;
+        max_rows = 20;
     }
 }
+
+$("#about-btn-2").click(function() {
+   $(`.navbar-toggler`).addClass('collapsed');
+   $(`.navbar-toggler`).attr('aria-expanded',"false");
+   $(`#collapsibleNavbar`).removeClass('show');
+});
+
+  
+$("#setting-btn-2").click(function() {
+    $(`.navbar-toggler`).addClass('collapsed');
+    $(`.navbar-toggler`).attr('aria-expanded',"false");
+    $(`#collapsibleNavbar`).removeClass('show');
+});
+
 

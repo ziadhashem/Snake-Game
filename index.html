@@ -53,8 +53,8 @@
                   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                     <img src="image/p2.jpg" class="img-bar" alt="...">
                     <ul class="nav">
-                      <li class="fa fa-clock-o" id="icon-clock"> <span  id="timer">00:00 </span>&nbsp;</li>
-                      <li class="fa fa-trophy" id="icon-trophy">  <span  id="points">0</span> Points</li>
+                      <li class="fa fa-clock-o" id="icon-clock" > <span  id="timer-2">00:00 </span>&nbsp;</li>
+                      <li class="fa fa-trophy"  id="icon-trophy"> <span  id="points-2">0</span> Points</li>
                     </ul>
                     <!-- Toggler/collapsibe Button -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -64,22 +64,20 @@
                     <!-- Navbar links -->
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                       <ul class="navbar-nav">
-                        <li><a class="btn btn-default" data-toggle="tab" href="#setting" id="setting-btn"><i  class="fa fa-cogs"></i> Settings</a></li>
-                        <li><a class="btn btn-default" data-toggle="tab" href="#about"><span class="fa fa-lightbulb-o"></span> About</a></li>
+                        <li><a class="btn btn-default" data-toggle="tab" href="#setting" id="setting-btn-2" style="width:100%;"><i  class="fa fa-cogs"></i> Settings</a></li>
+                        <li><a class="btn btn-default" data-toggle="tab" href="#about" id="about-btn-2"  style="width:100%;"><span class="fa fa-lightbulb-o"></span> About</a></li>
                       </ul>
                     </div>
                   </nav>
                 </div>
                <!-- ///////////////////////////////////////// -->
-                <div class="row" id="third_bar">
-                  <nav class="navbar navbar-expand-md navbar">
-          
+                <div id="third_bar">
+                  <nav>
                       <ul class="nav nav-tabs">
-                        <li><a class="btn btn-primary" data-toggle="tab" href="#play" id="play-btn"> <span class="fa fa-keyboard-o"></span> Play</a></li>
-                        <li><a class="btn btn-primary" data-toggle="tab" id="restart-btn" onclick=window.location.reload();><span class="fa fa-refresh"></span> Restart</a></li>
-                        <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up"></span></li>
+                        <li><a class="btn btn-primary" data-toggle="tab" href="#play"  onclick=newGame(); id="play-btn">  <span class="fa fa-keyboard-o"></span> Play</a></li>
+                        <li><a class="btn btn-primary" data-toggle="tab" id="restart-btn" onclick=window.location.reload();>             <span class="fa fa-refresh"></span> Restart</a></li>
+                        <li><span  id="main-sound-btn" class=" btn btn-default fa fa-volume-up" onclick=controlByBackgroundTune();></span></li>
                       </ul>
-                
                   </nav>  
                 </div>
                 <!-- ///////////////////////////////////////// -->
