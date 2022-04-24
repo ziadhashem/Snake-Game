@@ -14,6 +14,7 @@ function newGame(){
     getBestResult("DB/best_result.json");
     resetPlayerPoints();
     setGameTime();
+    setHeightAndWidth();
     setColorGameArea();
     setColorSnake();
     let s = setGameArea();
@@ -138,6 +139,7 @@ function setGameArea() {
     var table = document.createElement('TABLE');
     table.border='1';
     table.rules ='none';
+    table.classList.add('center');
     table.style.backgroundColor = color_game_area;
 
     
@@ -226,9 +228,16 @@ function resetPlayerPoints() {
 function setHeightAndWidth() {
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     console.log(width);
+    if(width> 800){ 
+        max_rows = 22;
+    }
+    if(width> 415 && width< 800){ 
+        max_colums = 16;
+        max_rows = 16;
+    }
     if(width< 415){ 
-        max_colums = 20;
-        max_rows = 20;
+        max_colums = 15;
+        max_rows = 15;
     }
 }
 

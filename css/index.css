@@ -21,6 +21,10 @@
   transition: opacity 0.5s ease;
 
 }
+.center {
+  margin: auto;
+  padding: auto;
+}
 #audio-btn:hover{
    cursor: pointer;
 }
@@ -47,8 +51,8 @@
 }
 
 #play_area{
-  padding: 1%;
-  padding-bottom: 15px;
+  padding: auto;
+  /* padding-bottom: 15px; */
   height: 79vh;
   border:10px dotted gold;
 }
@@ -235,15 +239,13 @@ table, td, th {
     
       #main-sound-btn{
         color:black;
-        margin-left: 50px;
+        margin-left: 20px;
       }
      
       #play-btn{
-        margin: 0 10px 0 2px;
+        margin: 0 5px 0 2px;
       }
-      #restart-btn{
-        margin-left: 10px;
-      }
+      
       #basic_bar{
         display:none;
       }
