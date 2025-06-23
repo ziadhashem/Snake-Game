@@ -4,7 +4,6 @@ A simple classic Snake Game built with HTML, CSS, and JavaScript.
 Move the snake, eat the food, and grow without hitting the wall or yourself!
 
 
-Developer Of This Version
 This Version Was Developed  
 By Engineer Ziad Hashem 
 17-april-2022
