@@ -5,8 +5,11 @@ Move the snake, eat the food, and grow without hitting the wall or yourself!
 
 
 Developer Of This Version
-This Version Was Developed By Engineer Ziad Hashem | 17-april-2022
--------------------------------------------------------------------------------------------------------------------------------------------------------
+This Version Was Developed  
+By Engineer Ziad Hashem 
+17-april-2022
+-----
+## 📸 Preview
 ![Screenshot (36)](https://user-images.githubusercontent.com/23342358/164886137-d24e75df-33e2-45f6-9135-c70f3a1755bf.png)
 ![Screenshot (35)](https://user-images.githubusercontent.com/23342358/164886173-0df3b6f6-02b8-4b1d-8946-f194cefd0e83.png)
 
@@ -22,14 +25,6 @@ This Version Was Developed By Engineer Ziad Hashem | 17-april-2022
 - Game over on collision with self or wall
 - Score counter
 - Responsive design and smooth animation
-
----
-
-## 📸 Preview
-
-![Snake Game Screenshot](./images/screenshot.png)
-
-> 💡 Add a screenshot named `screenshot.png` inside an `images/` folder.
 
 ---
 
